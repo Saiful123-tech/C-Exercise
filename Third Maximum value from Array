@@ -1,0 +1,29 @@
+public int SecondLargest(int[] number)
+        {
+            int firstMax = int.MinValue;
+            int secondMax = int.MinValue;
+            int thirdMax = int.MinValue;
+           for(int i=0;i<number.Length; i++)
+            {
+                if (number[i] > firstMax) {
+                    thirdMax = secondMax;
+                    secondMax = firstMax;
+                    firstMax = number[i];
+                }
+                else if (number[i] >= secondMax && secondMax!=firstMax) {
+                    thirdMax = secondMax;
+                    secondMax = number[i];
+                }
+                else if(number[i] >= thirdMax && thirdMax != secondMax) {
+                    thirdMax = number[i];
+                    
+                }
+            }
+            return thirdMax;
+
+        }
+        static void Main(string[] args)
+        {
+            CFG obj = new CFG();
+            Console.WriteLine(obj.SecondLargest(new int[]{ 5,3,2,6,9,2}));
+        }
