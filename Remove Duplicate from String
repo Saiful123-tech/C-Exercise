@@ -1,0 +1,19 @@
+public void Duplicate(string duplicate)
+        {
+            string s = string.Empty;
+            foreach (var item in duplicate)
+            {
+                if (!s.Contains(item))
+                {
+                    s += item;
+
+                }
+
+            }
+            Console.WriteLine(s);
+        }
+        static void Main(string[] args)
+        {
+            CFG obj = new CFG();
+            obj.Duplicate("dncdcddk");
+        }
