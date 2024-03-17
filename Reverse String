@@ -1,0 +1,29 @@
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public class HelloWorld
+{
+    public void reverseString(string s){
+        char[] arr = s.ToCharArray();
+        int i=0;
+        int j = s.Length-1;
+        while(i<j){
+            char temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;
+            j--;
+        }
+        s = new string(arr);
+       Console.WriteLine(s);
+    }
+    public static void Main(string[] args)
+    {
+         string s;
+         s = Console.ReadLine();
+         HelloWorld obj = new HelloWorld();
+         obj.reverseString(s);
+    }
+}
