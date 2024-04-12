@@ -1,0 +1,87 @@
+Q1 Given a List of Customers with thier orders write a linq query to find the total amount spent by each customers
+ List<Customer> customers = new List<Customer>()
+            {
+                new Customer()
+                {
+                    Name = "Saiful",
+                    Orders = new List<Order>()
+                    {
+                        new Order()
+                        {
+                            Product =  "lloyd",
+                            Price = 20000
+                        },
+                         new Order()
+                        {
+                            Product =  "Samsung TV",
+                            Price = 3000
+                        },
+                         new Order()
+                         {
+                             Product = "Telephone",
+                             Price = 27748
+                         }
+                    }
+
+                },
+                new Customer()
+                {
+                    Name = "Danish",
+                    Orders = new List<Order>()
+                    {
+                        new Order()
+                        {
+                            Product =  "lloyd",
+                            Price = 20000
+                        },
+                         new Order()
+                         {
+                             Product = "Telephone",
+                             Price = 27748
+                         }
+                    }
+
+                },
+                  new Customer()
+                {
+                    Name = "Raman",
+                    Orders = new List<Order>()
+                    {
+                        new Order()
+                        {
+                            Product =  "lloyd",
+                            Price = 20000
+                        },
+                         new Order()
+                         {
+                             Product = "Telephone",
+                             Price = 27748
+                         },
+                         new Order()
+                         {
+                             Product = "Telephone",
+                             Price = 27748
+                         },
+                         new Order()
+                         {
+                             Product = "Telephone",
+                             Price = 27748
+                         }
+                    }
+
+                }
+
+            };
+            var result = customers.Select(c => new
+            {
+                Name = c.Name,
+                totalPrice  = c.Orders.Sum(x => x.Price)
+               
+            });
+
+            foreach (var customer in result)
+            {
+                Console.WriteLine(customer.Name  + " " + customer.totalPrice);
+
+            }
+            Console.ReadLine();
