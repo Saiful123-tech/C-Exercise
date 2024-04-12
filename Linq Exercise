@@ -85,3 +85,79 @@ Q1 Given a List of Customers with thier orders write a linq query to find the to
 
             }
             Console.ReadLine();
+
+
+Q2 Given a list of Products with thier categories, write a Linq query to find the number of products in each category
+
+ List<ProductCategory> categories = new List<ProductCategory>()
+            {
+                new ProductCategory
+                {
+                    categoryName = "Electronics",
+                    products = new List<Product>
+                    {
+                       new Product()
+                       {
+                           ProductId = 1,
+                           ProductName = "Samsung",
+                           ProductPrice = 4500
+                       },
+                       new Product()
+                       {
+                           ProductId = 2,
+                           ProductName = "LGTV",
+                           ProductPrice = 32999
+                       },
+                       new Product()
+                       {
+                           ProductId = 3,
+                           ProductName = "Onion1",
+                           ProductPrice = 433999
+                       }
+                    }
+                },
+                new ProductCategory()
+                {
+                    categoryName = "Mobile",
+                    products = new List<Product>()
+                    {
+                        new Product()
+                        {
+                            ProductId = 2,
+                            ProductName = "Iphone",
+                            ProductPrice = 28900
+                        },
+                        new Product()
+                        {
+                            ProductId = 3,
+                            ProductName = "RealMe",
+                            ProductPrice = 330000
+                        },
+                        new Product()
+                        {
+                            ProductId = 4,
+                            ProductName = "Redmi",
+                            ProductPrice = 330000
+                        },
+                         new Product()
+                        {
+                            ProductId = 5,
+                            ProductName = "Nokia",
+                            ProductPrice = 330000
+                        }
+                    }
+
+                }
+            };
+
+            var results = categories.Select(c =>
+           new
+           {
+               CategoryName = c.categoryName,
+               productCount = c.products.Count()
+           });
+            foreach(var item in results)
+            {
+                Console.WriteLine(item.CategoryName + " " + item.productCount);
+            }
+            Console.ReadLine();
