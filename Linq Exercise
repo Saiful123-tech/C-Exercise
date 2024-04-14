@@ -357,3 +357,98 @@ Less Than Six 1,2,3,4,5
 SkipFirstFive 6,7,8,9,10
 slipLessThanSix 6,7,8,9
 
+Select vs SelectMany
+Select operator: this operator is widely used, and it is used to get value from the collection, which we can use for custom results depending on our requirements.
+SelectMany operator: This operator is used to get value from collections of collections.
+ List<Player> playerList = new List<Player>()
+            {
+              new Player() {
+        Id = 1001, Name = "Player1", CategoryId = 1, Skills = new List < string > {
+          "Bat",
+          "Bowl"
+        }
+      },
+
+      new Player() {
+        Id = 1002, Name = "Player2", CategoryId = 1, Skills = new List < string > {
+          "Bat",
+          "Bowl",
+          "Keeper"
+        }
+      },
+
+      new Player() {
+        Id = 1003, Name = "Player3", CategoryId = 2, Skills = new List < string > {
+          "Bat",
+          "Bowl",
+          "Keeper"
+
+        }
+      },
+
+      new Player() {
+        Id = 1004, Name = "Player4", CategoryId = 3, Skills = new List < string > {
+          "Bowl",
+        }
+      },
+      new Player() {
+        Id = 1005, Name = "Player5", CategoryId = 3, Skills = new List < string > {
+          "Bat",
+          "Bowl"
+        }
+      },
+      new Player() {
+        Id = 1006, Name = "Player6", CategoryId = 3, Skills = new List < string > {
+          "Bat",
+          "Bowl",
+          "Keeper"
+        }
+            }
+            };
+
+Select 
+var result = playerList.Select(x => x.Skills).ToList();
+            foreach(var item in result)
+            {
+                Console.WriteLine(item);
+            }
+Return System.String
+This is not right answer now to use selectMany
+Now will use Select Many
+            var result = playerList.SelectMany(x => x.Skills).ToList();
+            foreach(var item in result)
+            {
+                Console.WriteLine(item);
+            }
+
+GroupJoin
+IList<Student> studentList = new List<Student>() { 
+    new Student() { StudentID = 1, StudentName = "John", StandardID =1 },
+    new Student() { StudentID = 2, StudentName = "Moin", StandardID =1 },
+    new Student() { StudentID = 3, StudentName = "Bill", StandardID =2 },
+    new Student() { StudentID = 4, StudentName = "Ram",  StandardID =2 },
+    new Student() { StudentID = 5, StudentName = "Ron" } 
+};
+
+IList<Standard> standardList = new List<Standard>() { 
+    new Standard(){ StandardID = 1, StandardName="Standard 1"},
+    new Standard(){ StandardID = 2, StandardName="Standard 2"},
+    new Standard(){ StandardID = 3, StandardName="Standard 3"}
+};
+
+var groupJoin = standardList.GroupJoin(studentList,  //inner sequence
+                                std => std.StandardID, //outerKeySelector 
+                                s => s.StandardID,     //innerKeySelector
+                                (std, studentsGroup) => new // resultSelector 
+                                {
+                                    Students = studentsGroup,
+                                    StandarFulldName = std.StandardName
+                                });
+
+foreach (var item in groupJoin)
+{ 
+    Console.WriteLine(item.StandarFulldName );
+
+    foreach(var stud in item.Students)
+        Console.WriteLine(stud.StudentName);
+}
