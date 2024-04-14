@@ -175,3 +175,185 @@ List<string> names = new List<string>()
                 Console.WriteLine(item.ToString());
             }
             Console.ReadLine();
+
+Q4 Join Concept 
+`
+ List<Product> studentList = new List<Product>()
+            {
+                new Product(){ ProductId =1,ProductName = "Samsung",ProductPrice = 500,DepartmentId = 1},
+                new Product(){ ProductId =2,ProductName = "Nokia",ProductPrice = 430,DepartmentId = 2},
+                new Product(){ ProductId =3,ProductName = "Tea",ProductPrice = 230,DepartmentId = 3},
+                new Product(){ ProductId =4,ProductName = "Sony",ProductPrice = 700,DepartmentId = 1},
+                new Product(){ ProductId =5,ProductName = "Qualcom",ProductPrice = 600,DepartmentId = 2},
+                new Product(){ ProductId =6,ProductName = "Samsung",ProductPrice = 500, DepartmentId = 3},
+                new Product(){ ProductId =7,ProductName = "Nokia",ProductPrice = 430,DepartmentId = 1},
+                new Product(){ ProductId =8,ProductName = "Tea",ProductPrice = 230, DepartmentId = 2},
+                new Product(){ ProductId =9,ProductName = "Sony",ProductPrice = 700,DepartmentId = 1},
+                new Product(){ ProductId =10,ProductName = "Qualcom",ProductPrice = 600, DepartmentId = 3},
+            };
+            List<Department> department = new List<Department>()
+            {
+                new Department(){ Id = 1,DepartmentName = "telephone"},
+                new Department(){Id = 2,DepartmentName = "Food"},
+                new Department(){Id = 3, DepartmentName = "Electronic"}
+            };
+
+Join by Extension Method
+
+            var result = studentList.Join(department, student => student.DepartmentId, dept => dept.Id, (student, department) =>
+            new
+            {
+                studentName = student.ProductName,
+                departmentName = department.DepartmentName
+            }).OrderBy(x => x.studentName).ToList();
+            foreach (var items in result)
+            {
+                Console.WriteLine(items.studentName + " " + items.departmentName);
+            }
+
+
+Join by Query 
+ var joinresults = from std in studentList
+                              join dept in department on std.DepartmentId equals dept.Id orderby std.ProductName
+                              select new
+                              {
+                                  productName = std.ProductName,
+                                  departmentName = dept.DepartmentName
+                              };
+
+Group by 
+ var result = from student in studentList orderby student.ProductName group student by student.DepartmentId;
+            foreach(var item in result)
+            {
+               Console.WriteLine(item.Key);
+                foreach(var res in item)
+                {
+                    Console.WriteLine(res.ProductName);
+                }
+            }
+
+Group by first Capital letter
+ var result = from student in studentList orderby student.ProductName group student by student.studentName[0];
+            foreach(var item in result)
+            {
+               Console.WriteLine(item.Key);
+                foreach(var res in item)
+                {
+                    Console.WriteLine(res.studentName);
+                }
+            }
+
+var result = studentList.OrderBy(x => x.ProductName).GroupBy(x => x.DepartmentId).ToList();
+
+Sum() Method
+
+List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7 };
+            var result = listNumbers.Sum();
+            Console.WriteLine(result);
+
+Distinct() Method
+
+List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            var result = listNumbers.Distinct();
+            foreach(var item in result)
+            {
+                Console.WriteLine(item);
+            }
+
+Union() Method 
+List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            List<int> secondNumbers = new List<int>() { 1, 2, 3 };
+            var result = listNumbers.Union(secondNumbers).ToList();
+            foreach(var item in result)
+            {
+                Console.WriteLine(item);
+            }
+
+Intersect Method()
+
+  List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            List<int> secondNumbers = new List<int>() { 1, 2, 3 };
+            var result = listNumbers.Intersect(secondNumbers).ToList();
+            foreach(var item in result)
+            {
+                Console.WriteLine(item);
+            }
+1,2,3
+
+Except Method() reverse hai Intersect Method
+ List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            List<int> secondNumbers = new List<int>() { 1, 2, 3 };
+            var result = listNumbers.Except(secondNumbers).ToList();
+            foreach(var item in result)
+            {
+                Console.WriteLine(item);
+            }
+5,6,7,8
+
+
+Max() Mehtod
+ List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            List<int> secondNumbers = new List<int>() { 1, 2, 3 };
+            var result = listNumbers.Max();
+            Console.WriteLine(result);
+
+Min() Method
+
+ List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            List<int> secondNumbers = new List<int>() { 1, 2, 3 };
+            var result = listNumbers.Min();
+            Console.WriteLine(result);
+
+Average() Method 
+List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            List<int> secondNumbers = new List<int>() { 1, 2, 3 };
+            var result = listNumbers.Average();
+
+
+Aggregate Functiion
+
+ List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            List<int> secondNumbers = new List<int>() { 1, 2, 3 };
+            var result = listNumbers.Aggregate((accumulate, current) => accumulate + current);
+            Console.WriteLine(result);
+
+All Method()
+ List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            List<int> secondNumbers = new List<int>() { 1, 2, 3 };
+            var result = listNumbers.All(x => x % 2 == 0);
+Ans False
+
+Any() Method
+ List<int> listNumbers = new List<int>() { 1, 2, 3, 5, 6, 7,1,8,5};
+            List<int> secondNumbers = new List<int>() { 1, 2, 3 };
+            var result = listNumbers.Any(x => x % 2 == 0);
+            Console.WriteLine(result);
+
+Ans True
+
+Partioning Operator
+
+ List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            // Take the first 5 numbers
+            IEnumerable<int> firstFive = numbers.Take(5);
+            // Take numbers while they are less than 6
+            IEnumerable<int> lessThanSix = numbers.TakeWhile(n => n < 6);
+            // Skip the first 5 numbers
+            IEnumerable<int> skipFirstFive = numbers.Skip(5);
+            // Skip numbers while they are less than 6
+            IEnumerable<int> skipLessThanSix = numbers.SkipWhile(n => n < 6);
+            // Display the results
+            Console.WriteLine("First Five: " + string.Join(", ", firstFive));
+            Console.WriteLine("Less Than Six: " + string.Join(", ", lessThanSix));
+            Console.WriteLine("Skip First Five: " + string.Join(", ", skipFirstFive));
+            Console.WriteLine("Skip Less Than Six: " + string.Join(", ", skipLessThanSix));
+            Console.ReadKey();
+        }
+    }
+}
+Output:
+First Five 1,2,3,4,5
+Less Than Six 1,2,3,4,5
+SkipFirstFive 6,7,8,9,10
+slipLessThanSix 6,7,8,9
+
