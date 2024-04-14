@@ -161,3 +161,17 @@ Q2 Given a list of Products with thier categories, write a Linq query to find th
                 Console.WriteLine(item.CategoryName + " " + item.productCount);
             }
             Console.ReadLine();
+
+Q3 Given a list of strings write a Linq query to find all string that containes substring
+
+List<string> names = new List<string>()
+            {
+                "Saiful","Saman","Naman","Rohit","Rohan"
+            };
+
+            var results = names.Where(x => x.Contains("an")).ToList();
+            foreach(var item in results)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.ReadLine();
