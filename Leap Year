@@ -1,0 +1,48 @@
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public bool leapYear(int year){
+	    if(year % 400 == 0){
+	      return true;
+	    }
+	    else if(year % 4 == 0 && year % 100 !=0){
+	      return true;
+	    }
+	    return false;
+	  }
+		public static void Main(string[] args)
+		{
+		  Program p = new Program();
+		  int year;
+		  year =  Convert.ToInt32(Console.ReadLine());
+			if(p.leapYear(year)){
+			 Console.WriteLine("Leap year"); 
+			}
+			else{
+			  Console.WriteLine("Its not leap year");
+			}
+		}
+
+C++ code
+
+bool leapYear(int year){
+	    if(year % 400 == 0){
+	      return true;
+	    }
+	    else if(year % 4 == 0 && year % 100 !=0){
+	      return true;
+	    }
+	    return false;
+	  }
+
+Javascript Code 
+function leapYear(year){
+	    if(year % 400 === 0){
+	      return true;
+	    }
+	    else if(year % 4 === 0 && year % 100 !== 0){
+	      return true;
+	    }
+	    return false;
+	  }
