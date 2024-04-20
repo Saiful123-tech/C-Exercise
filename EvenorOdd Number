@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public bool checkEvenorOdd(int number){
+	     return number % 2 == 0 ? true : false;
+	  }
+		public static void Main(string[] args)
+		{
+		  Program p = new Program();
+		  
+			Console.WriteLine(p.checkEvenorOdd(2));
+		}
+	}
+}
+
+C++ Ans
+
+bool checkEvenorOdd(int number){
+	     return number % 2 == 0 ? true : false;
+	  }
+int main() {
+    cout<<checkEvenorOdd(5);
+}
