@@ -1,0 +1,42 @@
+public class Program
+	{
+	  public int SumNumber(int number){
+	     int sum=0;
+	     while(number>0){
+	       int remainder = number % 10;
+	       sum = sum + remainder;
+	       number = number /10;
+	     }
+	     return sum;
+	  }
+		public static void Main(string[] args)
+		{
+		  Program p = new Program();
+		  int number;
+		  number =  Convert.ToInt32(Console.ReadLine());
+		  Console.WriteLine("Sum is {0}",p.SumNumber(number));
+		}
+
+C++
+
+int SumNumber(int number){
+	     int sum=0;
+	     while(number>0){
+	       int remainder = number % 10;
+	       sum = sum + remainder;
+	       number = number /10;
+	     }
+	     return sum;
+	  }
+
+javascript 
+function SumNumber(number){
+	     let digit = number.toString();
+	     let sum=0;
+	     for(let x of digit){
+	       sum =  sum + parseInt(x);
+	     }
+	     return sum;
+	  }
+console.log(`Sum Number is ${SumNumber(12345)}`)
+
