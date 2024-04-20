@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public int GreatestThreeNumber(int num1,int num2,int num3){
+	    if(num1 >=num2 && num1>=num3){
+	      return num1;
+	    }
+	    else if(num2 >= num1 && num2>=num3){
+	      return num2;
+	    }
+	    return num3;
+	  }
+		public static void Main(string[] args)
+		{
+		  Program p = new Program();
+		  int num1,num2,num3;
+		  num1 =  Convert.ToInt32(Console.ReadLine());
+		  num2 =  Convert.ToInt32(Console.ReadLine());
+		  num3 =  Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine("Greatest Number is {0}",p.GreatestThreeNumber(num1,num2,num3));
+		}
+	}
+}
+
+C++
+int GreatestThreeNumber(int num1,int num2,int num3){
+	    if(num1 >=num2 && num1>=num3){
+	      return num1;
+	    }
+	    else if(num2 >= num1 && num2>=num3){
+	      return num2;
+	    }
+	    return num3;
+	  }
+int main() {
+    int num1,num2,num3;
+    cin>>num1>>num2>>num3;
+    cout<<"Greatest Number is "<<GreatestThreeNumber(num1,num2,num3);
+}
+Javascript
+function GreatestThreeNumber(num1,num2,num3){
+	    if(num1 >=num2 && num1>=num3){
+	      return num1;
+	    }
+	    else if(num2 >= num1 && num2>=num3){
+	      return num2;
+	    }
+	    return num3;
+	  }
+console.log(`Greatest Number is ${GreatestThreeNumber(3,3,0)}`)
