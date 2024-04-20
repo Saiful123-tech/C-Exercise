@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public int RangeSumNumber(int num1,int num2){
+	    int sum = 0;
+	   for(int i=num1; i<=num2; i++){
+	     sum = sum + i;
+	   }
+	   return sum;
+	  }
+		public static void Main(string[] args)
+		{
+		  Program p = new Program();
+			Console.WriteLine("Sum N Natutal Number is {0}",p.RangeSumNumber(5,10));
+		}
+	}
+}
+
+C++ Code
+int RangeSumNumber(int num1,int num2){
+	    int sum = 0;
+	   for(int i=num1; i<=num2; i++){
+	     sum = sum + i;
+	   }
+	   return sum;
+	  }
