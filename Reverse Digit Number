@@ -1,0 +1,28 @@
+public int ReverseNumber(int number){
+	     int sum=0;
+	     int rev=0;
+	     while(number>0){
+	       int rem = number % 10;
+	       rev = rev * 10 + rem;
+	       number = number /10;
+	     }
+	     return rev;
+	  }
+
+C++
+int ReverseNumber(int number){
+	     int sum=0;
+	     int rev=0;
+	     while(number>0){
+	       int rem = number % 10;
+	       rev = rev * 10 + rem;
+	       number = number /10;
+	     }
+	     return rev;
+	  }
+int main() 
+{
+    cout <<ReverseNumber(12345);
+}
+
+Javascript
