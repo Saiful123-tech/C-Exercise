@@ -1,0 +1,31 @@
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public string PositiveNumber(int number){
+	    if(number>=0){
+	      return "Number is Positive";
+	    }
+	    return "Number is Negative";
+	  }
+		public static void Main(string[] args)
+		{
+		  Program p = new Program();
+		  
+			Console.WriteLine(p.PositiveNumber(5));
+		}
+	}
+}
+
+
+C++ ANs
+
+string PositiveNumber(int number){
+	    if(number>=0){
+	      return "Number is Positive";
+	    }
+	    return "Number is Negative";
+	  }
+int main() {
+    cout<<PositiveNumber(5);
+}
