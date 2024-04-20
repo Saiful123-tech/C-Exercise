@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public int SumNNaturalNumber(int number){
+	    int i=1;
+	    int sum=0;
+	    while(i<=number){
+	      sum += i;
+	      i++;
+}
+	    return sum;
+	  }
+		public static void Main(string[] args)
+		{
+		  Program p = new Program();
+		  int number;
+      number =  Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine("Sum N Natutal Number is {0}",p.SumNNaturalNumber(number));
+		}
+	}
+}
+
+C++ Code 
+
+int SumNNaturalNumber(int number){
+	    int i=1;
+	    int sum=0;
+	    while(i<=number){
+	      sum += i;
+	      i++;
+}
+	    return sum;
+	  }
