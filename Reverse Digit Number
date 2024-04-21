@@ -26,3 +26,11 @@ int main()
 }
 
 Javascript
+
+function ReverseNumber(number){
+  
+number = number.toString();
+let rev = number.split("").reduce((acc,cur) => cur+ acc,"");
+return parseInt(rev);
+	  }
+console.log(`Sum Number is ${ReverseNumber(12345)}`);
