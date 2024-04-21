@@ -1,33 +1,72 @@
-// Online C# Editor for free
-// Write, Edit and Run your C# code using C# Online Compiler
-
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
-public class HelloWorld
+namespace HelloWorld
 {
-    public bool CheckPalindrome(string s){
-        char[] arr = s.ToCharArray();
-        int i=0;
-        int j = s.Length-1;
-        while(i<j){
-            if(arr[i]!=arr[j]){
-                return false;
-            }
-            i++;
-            j--;
-        }
-        return true;
-    }
-    public static void Main(string[] args)
-    {
-         string s;
-         s = Console.ReadLine();
-         HelloWorld obj = new HelloWorld();
-         if(obj.CheckPalindrome(s)){
-             Console.WriteLine("Palindrome");
-         }
-         else{
-             Console.WriteLine("Not Palindrome");
-         }
-    }
+	public class Program
+	{
+	  public int ReverseNumber(int number){
+	     int rev=0;
+	     while(number>0){
+	       int rem = number % 10;
+	       rev = rev * 10 + rem;
+	       number = number /10;
+	     }
+	     return rev;
+	  }
+		public static void Main(string[] args)
+		{
+			int number;
+			number =Convert.ToInt32((Console.ReadLine()));
+			Program p = new Program();
+			if(p.ReverseNumber(number).Equals(number)){
+			  Console.WriteLine("Palindrome");
+			}
+			else{
+			  Console.WriteLine("Its not Palindrome");
+			}
+		}
+	}
+}
+
+C++ Code
+
+int ReverseNumber(int number){
+	     int rev=0;
+	     while(number>0){
+	       int rem = number % 10;
+	       rev = rev * 10 + rem;
+	       number = number /10;
+	     }
+	     return rev;
+	  }
+string Palindrome(int number){
+  if(number == ReverseNumber(number)){
+     return "Number is Palindrome"; 
+  }
+  return "Number is not plaindrome";
+}
+int main() 
+{
+    	int number;
+    	cin>>number;
+    	cout<<Palindrome(number);
+			
+}
+
+Javascript code
+const number = 12321;
+function ReverseNumber(number){
+  
+number = number.toString();
+let rev = number.split("").reduce((acc,cur) => cur+ acc,"");
+return parseInt(rev);
+	  }
+if(number === ReverseNumber(number)){
+  console.log("Number is Palindrome");
+}
+else{
+  console.log("Number is not Palindrome");
 }
