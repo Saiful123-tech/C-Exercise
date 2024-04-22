@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public int Power(int b,int exp){
+	   int result=1;
+	   for(int i=1;i<=exp;i++){
+	     result = (result * b);
+	   }
+	   return result;
+	  }
+		public static void Main(string[] args)
+		{
+			Program p = new Program();
+			Console.WriteLine(p.Power(6,3));
+		}
+	}
+}
+
+C++ Code
+int Power(int b,int exp){
+	   int result=1;
+	   for(int i=1;i<=exp;i++){
+	     result = (result * b);
+	   }
+	   return result;
+	  }
