@@ -1,0 +1,51 @@
+ public class Program
+    {
+        public int Count(int number)
+        {
+            int count = 0;
+            while (number != 0)
+            {
+                count++;
+                number = number / 10;
+            }
+            return count;
+        }
+        static int pow(int num, int pow)
+        {
+            int i = 1;
+            int number = num;
+            while (i < pow)
+            {
+                num = num * number;
+                i++;
+            }
+            return num;
+        }
+        bool Armstrong(int number, int pow)
+        {
+            int sum = 0;
+            int num = number;
+            while (number != 0)
+            {
+                int rem = number % 10;
+                sum = sum + Program.pow(rem, pow);
+                number = number / 10;
+            }
+            return sum == num;
+        }
+        public static void Main(string[] args)
+        {
+            int number;
+            number = Convert.ToInt32(Console.ReadLine());
+            Program p = new Program();
+            int power = p.Count(number);
+            if (p.Armstrong(number, power))
+            {
+                Console.WriteLine("Number is Armstrong");
+            }
+            else
+            {
+                Console.WriteLine("Number is not Armstrong");
+            }
+        }
+    }
