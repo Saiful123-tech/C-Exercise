@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  static int Factorial(int rem){
+	    int f=1;
+	   for(int i=1;i<=rem;i++){
+	     f=f*i;
+	   }
+	   return f;
+	  }
+	  public void Strong(int number){
+	    int count=0;
+	    int num = number;
+	    while(number!=0){
+	      int rem = number % 10;
+	      Console.WriteLine(rem);
+	      count =  count + Program.Factorial(rem);
+	      Console.WriteLine(count);
+	      number = number / 10;
+	    }
+	    if(count == num){
+	      Console.WriteLine("{0} Strong Number",num);
+	    }
+	    else{
+	      Console.WriteLine("{0} Not Strong Number",num);
+	    }
+	  }
+		public static void Main(string[] args)
+		{
+			Program p = new Program();
+			p.Strong(145);
+		}
+	}
+}
