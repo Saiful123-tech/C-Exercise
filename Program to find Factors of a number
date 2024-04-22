@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public void Factor(int number){
+	   for(int i=1;i<=number;i++){
+	     if(number%i==0){
+	       Console.WriteLine(i);
+	     }
+	   }
+	  }
+		public static void Main(string[] args)
+		{
+			Program p = new Program();
+			p.Factor(100);
+		}
+	}
+}
+
+C++ Code
+void Factor(int number){
+	   for(int i=1;i<=number;i++){
+	     if(number%i==0){
+	       cout<<i;
+	     }
+	   }
+	  }
