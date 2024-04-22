@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public int Fibonacci(int number){
+	    int b=1,c=0;
+	    int a=0;
+	    if(number==1){
+	      return c;
+	    }
+	    if(number==2){
+	      return b;
+	    }
+	    for(int i=2;i<number;i++){
+	      a=b+c;
+	      c=b;
+	      b=a;
+	    }
+	    return a;
+	  }
+		public static void Main(string[] args)
+		{
+			Program p = new Program();
+			Console.WriteLine(p.Fibonacci(8));
+		}
+	}
+}
+
+
+C++ Code
+
+int Fibonacci(int number){
+	    int b=1,c=0;
+	    int a=0;
+	    if(number==1){
+	      return c;
+	    }
+	    if(number==2){
+	      return b;
+	    }
+	    for(int i=2;i<number;i++){
+	      a=b+c;
+	      c=b;
+	      b=a;
+	    }
+	    return a;
+	  }
+		
+C++
