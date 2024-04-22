@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  public int Factorial(int number){
+	   int f=1;
+	   for(int i=1;i<=number;i++){
+	     f=f*i;
+	   }
+	   return f;
+	  }
+		public static void Main(string[] args)
+		{
+			Program p = new Program();
+			Console.WriteLine(p.Factorial(4));
+		}
+	}
+}
+
+C++ Code
+int Factorial(int number){
+	   int f=1;
+	   for(int i=1;i<=number;i++){
+	     f=f*i;
+	   }
+	   return f;
+	  }
