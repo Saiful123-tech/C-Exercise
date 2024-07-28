@@ -1,0 +1,31 @@
+/******************************************************************************
+
+                            Online C# Compiler.
+                Code, Compile, Run and Debug C# program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+using System;
+using System.Collections.Generic;
+class HelloWorld {
+   static public void RepeatingElement(int[] arr){
+      Dictionary<int,int> dict = new Dictionary<int,int>();
+      foreach(int num in arr){
+          if(dict.ContainsKey(num)){
+              dict[num] += 1;
+              continue;
+          }
+          dict[num] = 1;
+      }
+      foreach(KeyValuePair<int,int> item in dict){
+          if(item.Value!=1){
+              Console.WriteLine(item.Key);
+          }
+      }
+  }
+  static void Main() {
+   int[] arr = {5,4,6,2,61,5,4,4};
+   HelloWorld.RepeatingElement(arr);
+  }
+}
