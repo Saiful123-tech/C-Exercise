@@ -1,0 +1,27 @@
+/******************************************************************************
+
+                            Online C# Compiler.
+                Code, Compile, Run and Debug C# program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+using System;
+using System.Collections.Generic;
+class HelloWorld {
+   static public int DistinctElementCount(int[] arr){
+      List<int> l1 = new List<int>();
+      foreach(int num in arr){
+          if(l1.Contains(num)){
+            continue;  
+          }
+          l1.Add(num);
+      }
+      return l1.Count;
+  }
+  static void Main() {
+   int[] arr = {5,4,6,2,61,5,4,4};
+   int result = HelloWorld.DistinctElementCount(arr);
+   Console.WriteLine(result);
+  }
+}
