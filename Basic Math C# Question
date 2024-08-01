@@ -34,3 +34,95 @@ public:
         return revN; 
     }
 };
+
+Check Palindrome
+
+public class Solution {
+    public int reverseNumber(int x){
+        int revNum = 0;
+        while(x!=0){
+            int rem = x % 10;
+            revNum = (revNum*10) + rem;
+            x = x /10;
+        }
+        return revNum;
+    }
+    public bool IsPalindrome(int x) {
+        if(x<0){
+            return false;
+        }
+        int revNumber = reverseNumber(x);
+        if(revNumber == x){
+            return true;
+        }
+        return false;
+    }
+}
+TC long n
+SC o(1)
+
+GCD LCM
+long long A , long long B
+long long A , long long B
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+class Solution {
+  public:
+    long long LCM(long long A , long long B){
+        long long maximum = max(A,B);
+        bool divisibleNum;
+        long long count = 1;
+        for(long long i=1;i<=maximum;i++){
+            divisibleNum = false;
+            if(A%i==0){
+              A= A/i;
+              divisibleNum = true;
+            }
+            else if(B%i==0){
+                B = B/i;
+                divisibleNum = true;
+            }
+            if(divisibleNum==true){
+                count = count * i;
+            }
+        }
+        return count;
+    }
+    long long GCD(long long A , long long B){
+        long long minimum = min(A,B);
+        long long gcd;
+        for(long long i=1;i<=minimum;i++){
+            if(A%i==0 && B%i==0){
+                gcd = i;
+            }
+        }
+        return gcd;
+    }
+    vector<long long> lcmAndGcd(long long A , long long B) {
+        // code here
+        vector<long long> v;
+        v.push_back(LCM(A,B));
+        v.push_back(GCD(A,B));
+        return v;
+    }
+};
+
+//{ Driver Code Starts.
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        long long A,B;
+        
+        cin>>A>>B;
+
+        Solution ob;
+        vector<long long> ans = ob.lcmAndGcd(A,B);
+        cout<<ans[0]<<" "<<ans[1]<<endl;
+    }
+    return 0;
+}
+// } Driver Code Ends
