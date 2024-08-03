@@ -126,3 +126,21 @@ int main() {
     return 0;
 }
 // } Driver Code Ends
+
+
+
+Armstrong Number
+string armstrongNumber(int n) {
+        // code here
+        int armstrong = 0;
+        int num = n;
+        while(n!=0){
+            int rem = n % 10;
+            armstrong += (rem*rem*rem);
+            n = n / 10;
+        }
+        if(armstrong==num){
+            return "true";
+        }
+        return "false";
+    }
