@@ -40,3 +40,12 @@ SC o(n) recursive
 TC o(n)
 SC o(n) recursive
 
+Sum of First N numbers
+long long int firstN(int n) {
+    // Write your code here.
+    if(n==0){
+        return 0;
+    }
+    return n + firstN(n-1);
+}
+TC o(n) SC o(n)
