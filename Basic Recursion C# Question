@@ -26,3 +26,17 @@ public void printGfg(int N)
 TC o(n)
 SC o(n) recursive
 
+ public void printNos(int N)
+    {
+        //Your code here
+        if(N==0){
+            return;
+        }
+        Console.Write(N);
+        Console.Write(" ");
+        printNos(N-1);
+    }
+
+TC o(n)
+SC o(n) recursive
+
