@@ -1,0 +1,12 @@
+Print 1 To N Without Loop
+
+public void printNos(int N)
+    {
+        //Your code here
+        if(N==0){
+            return;
+        }
+        printNos(N-1);
+        Console.Write(N);
+        Console.Write(" ");
+    }
