@@ -10,3 +10,19 @@ public void printNos(int N)
         Console.Write(N);
         Console.Write(" ");
     }
+
+Print GFG n times
+
+public void printGfg(int N)
+    {
+        //Your code here
+        if(N==0){
+            return;
+        }
+        Console.Write("GFG ");
+        printGfg(N-1);
+    }
+
+TC o(n)
+SC o(n) recursive
+
